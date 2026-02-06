@@ -1,13 +1,107 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Heart } from 'lucide-react';
 
+const heroImages = [
+  { id: 1, url: 'https://picsum.photos/seed/hero/800/1000', caption: 'Hi. ♥' },
+  { id: 2, url: 'https://picsum.photos/seed/love/800/1000', caption: 'Love 🍂' },
+  { id: 3, url: 'https://picsum.photos/seed/friends/800/1000', caption: 'Friends ❄️' },
+  { id: 4, url: 'https://picsum.photos/seed/school/800/1000', caption: 'Truham 🏉' },
+];
+
 const Hero: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleNextPhoto = () => {
+    if (isAnimating) return;
+    
+    setIsAnimating(true);
+    
+    // Tempo da animação de "voar para fora" antes de trocar os índices
+    setTimeout(() => {
+      setActiveIndex((prev) => (prev + 1) % heroImages.length);
+      setIsAnimating(false);
+    }, 400); // 400ms match com a animação CSS
+  };
+
+  // Helper para determinar o estilo de cada card baseado na sua posição relativa ao índice ativo
+  const getCardStyle = (index: number) => {
+    const total = heroImages.length;
+    // Calcula a distância do card atual para o índice ativo (0 = frente, 1 = logo atrás, etc)
+    const offset = (index - activeIndex + total) % total;
+
+    // Base Style: Polaroid visual
+    const baseStyle = "absolute top-0 left-0 w-full h-full p-3 bg-white border-4 border-black rounded-lg shadow-2xl transition-all ease-[cubic-bezier(0.34,1.56,0.64,1)] select-none origin-bottom";
+
+    if (offset === 0) {
+      // CARD DA FRENTE (ATIVO)
+      if (isAnimating) {
+        // Estado: Voando para longe (para a direita e rodando)
+        return {
+          className: `${baseStyle} z-50 duration-500 opacity-0`,
+          style: { transform: 'translateX(130%) translateY(50px) rotate(45deg) scale(1.1)' }
+        };
+      }
+      // Estado: Parado na frente
+      return {
+        className: `${baseStyle} z-50 duration-500 cursor-pointer hover:rotate-0 hover:scale-[1.02]`,
+        style: { transform: 'translateX(0) translateY(0) rotate(-3deg) scale(1)' }
+      };
+    } 
+    
+    else if (offset === 1) {
+      // SEGUNDO CARD (Logo atrás)
+      return {
+        className: `${baseStyle} z-40 duration-500`,
+        style: { transform: 'translateX(10px) translateY(-10px) rotate(3deg) scale(0.96)' }
+      };
+    } 
+    
+    else if (offset === 2) {
+      // TERCEIRO CARD (Fundo)
+      return {
+        className: `${baseStyle} z-30 duration-500`,
+        style: { transform: 'translateX(-8px) translateY(-20px) rotate(-4deg) scale(0.92)' }
+      };
+    } 
+    
+    else {
+      // RESTO DA PILHA (Escondido/Resetando)
+      // duration-0 é CRUCIAL aqui: quando o card sai da frente e vai pro fundo, 
+      // ele precisa "teletransportar" para trás sem o usuário ver ele atravessando a pilha.
+      return {
+        className: `${baseStyle} z-10 duration-0 opacity-0`,
+        style: { transform: 'translateX(0) translateY(0) scale(0.8)' }
+      };
+    }
+  };
+
+  const PolaroidContent = ({ image, rotateIcon = false }: { image: typeof heroImages[0], rotateIcon?: boolean }) => (
+    <div className="w-full h-full flex flex-col pointer-events-none">
+        <div className="flex-1 border-2 border-gray-200 overflow-hidden relative rounded-sm group">
+            <img 
+                src={image.url} 
+                alt={image.caption} 
+                className="w-full h-full object-cover"
+            />
+             {/* Doodle on top of image */}
+            <div className={`absolute top-2 right-2 ${rotateIcon ? 'animate-pulse' : ''}`}>
+                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                 </svg>
+            </div>
+        </div>
+        <div className="h-12 md:h-16 flex items-center justify-center">
+             <p className="font-hand text-2xl md:text-3xl text-hs-text">{image.caption}</p>
+        </div>
+    </div>
+  );
+
   return (
     <section className="relative w-full overflow-hidden bg-hs-bg pb-20 pt-10 md:pt-16">
       
-      {/* --- Graphic Background Elements (Custom Leaves based on request) --- */}
-      
-      {/* 1. Pink Leaf (3-pointed curvy, Top Left) */}
+      {/* --- Graphic Background Elements --- */}
+      {/* 1. Pink Leaf (Top Left) */}
       <div className="absolute top-4 md:top-10 left-[2%] md:left-[5%] text-hs-pink opacity-90 animate-float w-12 h-12 md:w-16 md:h-16 transform -rotate-12 z-0">
          <svg viewBox="0 0 100 100" fill="none" stroke="black" strokeWidth="3">
             <path d="M50 85 C 50 85, 30 75, 20 60 C 10 45, 15 30, 30 35 C 40 38, 45 50, 45 50 C 45 50, 40 30, 50 15 C 60 5, 70 10, 75 25 C 80 40, 65 50, 65 50 C 65 50, 80 45, 90 55 C 100 65, 90 80, 70 75 C 60 72, 55 65, 50 85 Z" fill="#e88080" strokeLinejoin="round" />
@@ -54,7 +148,7 @@ const Hero: React.FC = () => {
         <div className="w-full md:w-1/2 text-center md:text-left z-10 mb-12 md:mb-0 space-y-4">
           <div className="inline-flex flex-col items-center md:items-start relative">
             
-            {/* Main Title - Sticker Style */}
+            {/* Main Title */}
             <h1 
                 className="font-hand text-5xl sm:text-6xl lg:text-8xl tracking-[0.1em] leading-none"
                 style={{
@@ -62,13 +156,13 @@ const Hero: React.FC = () => {
                     WebkitTextStroke: '2px #3e7c59', // Dark Green Outline
                     paintOrder: 'stroke fill',
                     fontWeight: 700,
-                    textShadow: '3px 3px 0px rgba(62, 124, 89, 0.4)' // Shadow adjusted for responsive
+                    textShadow: '3px 3px 0px rgba(62, 124, 89, 0.4)' 
                 }}
             >
               HEARTSTOPPER
             </h1>
             
-            {/* Fanpage text directly below */}
+            {/* Fanpage text */}
             <h2 className="font-hand text-3xl sm:text-4xl text-hs-greenDark/90 font-bold tracking-widest mt-2 transform -rotate-1 decoration-wavy underline decoration-hs-pink">
                 Fanpage
             </h2>
@@ -104,34 +198,34 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Image/Art Area */}
-        <div className="w-full md:w-1/2 relative flex justify-center mt-6 md:mt-0">
+        {/* --- STACKED CARDS ANIMATION --- */}
+        <div className="w-full md:w-1/2 relative flex justify-center mt-6 md:mt-0 select-none perspective-1000">
             
-            {/* Main Hero Image Simulation */}
-            <div className="relative w-full max-w-xs md:max-w-md aspect-[4/5] transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                
-                {/* Simulated Polaroid Stack */}
-                <div className="absolute top-0 left-0 w-full h-full bg-white border-4 border-black rounded-lg transform -rotate-6 z-0 shadow-lg"></div>
-                <div className="absolute top-0 left-0 w-full h-full bg-hs-greenLight border-4 border-black rounded-lg transform rotate-3 z-0 shadow-lg"></div>
-
-                <div className="relative w-full h-full bg-white border-4 border-black rounded-lg p-3 z-10 shadow-2xl flex flex-col">
-                    <div className="flex-1 border-2 border-gray-200 overflow-hidden relative rounded-sm group">
-                        <img 
-                            src="https://picsum.photos/seed/hero/800/1000" 
-                            alt="Nick and Charlie" 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                         {/* Doodle on top of image */}
-                        <div className="absolute top-2 right-2 animate-pulse">
-                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                             </svg>
-                        </div>
+            {/* Container maintains the aspect ratio */}
+            <div 
+                className="relative w-full max-w-xs md:max-w-md aspect-[4/5]"
+                onClick={handleNextPhoto}
+                title="Clique para passar a foto!"
+            >
+               {/* 
+                  Render ALL cards. 
+                  Their visual state (Front, Back, Hidden) depends on their index relative to activeIndex.
+                */}
+               {heroImages.map((image, index) => {
+                  const { className, style } = getCardStyle(index);
+                  // Only the active card (offset 0) needs the rotateIcon logic
+                  const offset = (index - activeIndex + heroImages.length) % heroImages.length;
+                  
+                  return (
+                    <div 
+                      key={image.id}
+                      className={className}
+                      style={style}
+                    >
+                      <PolaroidContent image={image} rotateIcon={offset === 0} />
                     </div>
-                    <div className="h-12 md:h-16 flex items-center justify-center">
-                         <p className="font-hand text-2xl md:text-3xl text-hs-text">Hi. <span className="text-hs-pink">♥</span></p>
-                    </div>
-                </div>
+                  );
+               })}
             </div>
         </div>
       </div>

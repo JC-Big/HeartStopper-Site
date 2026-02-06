@@ -5,7 +5,12 @@ import { characters } from '../data';
 import { Character } from '../types';
 import { X, Calendar, GraduationCap, User, Star } from 'lucide-react';
 
-const CharacterCard = ({ character, onClick }: { character: Character; onClick: (c: Character) => void }) => (
+interface CharacterCardProps {
+  character: Character;
+  onClick: (c: Character) => void;
+}
+
+const CharacterCard: React.FC<CharacterCardProps> = ({ character, onClick }) => (
   <div 
       onClick={() => onClick(character)}
       className="bg-white p-4 rounded-xl shadow-md border-4 border-transparent hover:border-hs-green cursor-pointer transition-all hover:scale-105 group relative overflow-hidden"

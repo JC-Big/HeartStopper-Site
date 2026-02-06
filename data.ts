@@ -272,9 +272,9 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'Charlie e Nick estão na mesma escola, mas nunca se encontraram... até o dia em que são obrigados a sentar juntos.',
-    cover: 'https://picsum.photos/seed/hs1/400/600',
-    buyLink: 'https://amazon.com',
-    pdfUrl: 'https://example.com/sample.pdf'
+    cover: './public/covers/volume-1.png',
+    buyLink: 'https://a.co/d/02uoJ7ky',
+    pdfUrl: './public/quadrinhos/heartstopper-volume-1.pdf'
   },
   {
     id: 2,
@@ -284,9 +284,9 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'Nick e Charlie são melhores amigos. Nick sabe que Charlie é gay, e Charlie tem certeza que Nick não é.',
-    cover: 'https://picsum.photos/seed/hs2/400/600',
-    buyLink: 'https://amazon.com',
-    pdfUrl: 'https://example.com/sample.pdf'
+    cover: './public/covers/volume-2.png',
+    buyLink: 'https://a.co/d/077Yr4l3',
+    pdfUrl: './public/quadrinhos/heartstopper-volume-2.pdf'
   },
   {
     id: 3,
@@ -296,21 +296,33 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'O grupo de amigos vai para Paris! Segredos serão revelados na cidade do amor.',
-    cover: 'https://picsum.photos/seed/hs3/400/600',
-    buyLink: 'https://amazon.com',
-    pdfUrl: 'https://example.com/sample.pdf'
+    cover: './public/covers/volume-3.png',
+    buyLink: 'https://a.co/d/04RtbHp5',
+    pdfUrl: './public/quadrinhos/heartstopper-volume-3.pdf'
   },
   {
-    id: 4,
+    id: 4.1,
     title: 'Heartstopper Volume 4',
     author: 'Alice Oseman',
     year: '2021',
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'A vida não é sempre fácil, mas ter alguém ao seu lado faz toda a diferença.',
-    cover: 'https://picsum.photos/seed/hs4/400/600',
-    buyLink: 'https://amazon.com',
-    pdfUrl: 'https://example.com/sample.pdf'
+    cover: './public/covers/volume-4.png',
+    buyLink: 'https://a.co/d/0akYeRXP,
+    pdfUrl: './public/quadrinhos/heartstopper-volume-4-1.pdf'
+  },
+  {
+    id: 4.2,
+    title: 'Heartstopper Volume 4',
+    author: 'Alice Oseman',
+    year: '2021',
+    type: 'Quadrinho',
+    tags: ['Romance', 'LGBTQIA+'],
+    description: 'A vida não é sempre fácil, mas ter alguém ao seu lado faz toda a diferença.',
+    cover: './public/covers/volume-4.png',
+    buyLink: 'https://a.co/d/0akYeRXP',
+    pdfUrl: './public/quadrinhos/heartstopper-volume-4-2.pdf'
   },
   {
     id: 5,
@@ -320,9 +332,9 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'Nick e Charlie estão apaixonados, mas o que vem a seguir para o casal?',
-    cover: 'https://picsum.photos/seed/hs5/400/600',
-    buyLink: 'https://amazon.com',
-    pdfUrl: 'https://example.com/sample.pdf'
+    cover: './public/covers/volume-5.png',
+    buyLink: 'https://a.co/d/094DB6It',
+    pdfUrl: './public/quadrinhos/heartstopper-volume-5.pdf'
   }
 ];
 
