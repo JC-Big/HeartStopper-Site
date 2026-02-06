@@ -309,7 +309,7 @@ export const graphicNovels: Book[] = [
     tags: ['Romance', 'LGBTQIA+'],
     description: 'A vida não é sempre fácil, mas ter alguém ao seu lado faz toda a diferença.',
     cover: './public/covers/volume-4.png',
-    buyLink: 'https://a.co/d/0akYeRXP,
+    buyLink: 'https://a.co/d/0akYeRXP',
     pdfUrl: './public/quadrinhos/heartstopper-volume-4-1.pdf'
   },
   {
