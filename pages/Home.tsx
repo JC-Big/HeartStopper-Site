@@ -67,8 +67,9 @@ const Home: React.FC = () => {
 
       {/* PDF Reader Modal */}
       {selectedBook && (
-        <PdfReader book={selectedBook} onClose={handleCloseReader} />
-      )}
+        <PdfReader book={selectedBook} onClose={handleCloseReader}/>
+      )
+      }
     </div>
   );
 };

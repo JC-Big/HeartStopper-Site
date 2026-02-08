@@ -272,9 +272,9 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'Charlie e Nick estão na mesma escola, mas nunca se encontraram... até o dia em que são obrigados a sentar juntos.',
-    cover: './public/covers/volume-1.png',
+    cover: '/covers/volume-1.png',
     buyLink: 'https://a.co/d/02uoJ7ky',
-    pdfUrl: './public/quadrinhos/heartstopper-volume-1.pdf'
+    pdfUrl: '/quadrinhos/heartstopper-volume-1.pdf'
   },
   {
     id: 2,
@@ -284,9 +284,9 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'Nick e Charlie são melhores amigos. Nick sabe que Charlie é gay, e Charlie tem certeza que Nick não é.',
-    cover: './public/covers/volume-2.png',
+    cover: '/covers/volume-2.png',
     buyLink: 'https://a.co/d/077Yr4l3',
-    pdfUrl: './public/quadrinhos/heartstopper-volume-2.pdf'
+    pdfUrl: '/quadrinhos/heartstopper-volume-2.pdf'
   },
   {
     id: 3,
@@ -296,9 +296,9 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'O grupo de amigos vai para Paris! Segredos serão revelados na cidade do amor.',
-    cover: './public/covers/volume-3.png',
+    cover: '/covers/volume-3.png',
     buyLink: 'https://a.co/d/04RtbHp5',
-    pdfUrl: './public/quadrinhos/heartstopper-volume-3.pdf'
+    pdfUrl: '/quadrinhos/heartstopper-volume-3.pdf'
   },
   {
     id: 4.1,
@@ -308,9 +308,9 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'A vida não é sempre fácil, mas ter alguém ao seu lado faz toda a diferença.',
-    cover: './public/covers/volume-4.png',
+    cover: '/covers/volume-4.png',
     buyLink: 'https://a.co/d/0akYeRXP',
-    pdfUrl: './public/quadrinhos/heartstopper-volume-4-1.pdf'
+    pdfUrl: '/quadrinhos/heartstopper-volume-4-1.pdf'
   },
   {
     id: 4.2,
@@ -320,9 +320,9 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'A vida não é sempre fácil, mas ter alguém ao seu lado faz toda a diferença.',
-    cover: './public/covers/volume-4.png',
+    cover: '/covers/volume-4-2.png',
     buyLink: 'https://a.co/d/0akYeRXP',
-    pdfUrl: './public/quadrinhos/heartstopper-volume-4-2.pdf'
+    pdfUrl: '/quadrinhos/heartstopper-volume-4-2.pdf'
   },
   {
     id: 5,
@@ -332,9 +332,9 @@ export const graphicNovels: Book[] = [
     type: 'Quadrinho',
     tags: ['Romance', 'LGBTQIA+'],
     description: 'Nick e Charlie estão apaixonados, mas o que vem a seguir para o casal?',
-    cover: './public/covers/volume-5.png',
+    cover: '/covers/volume-5.png',
     buyLink: 'https://a.co/d/094DB6It',
-    pdfUrl: './public/quadrinhos/heartstopper-volume-5.pdf'
+    pdfUrl: '/quadrinhos/heartstopper-volume-5.pdf'
   }
 ];
 
@@ -347,8 +347,8 @@ export const novels: Book[] = [
     type: 'Livro',
     tags: ['Novela', 'Romance'],
     description: 'Uma novela sobre as incertezas do relacionamento à distância quando Nick vai para a universidade.',
-    cover: 'https://picsum.photos/seed/nc/400/600',
-    buyLink: 'https://amazon.com'
+    cover: '/covers/nick-e-charlie.png',
+    buyLink: 'https://a.co/d/055VCUiO'
   },
   {
     id: 102,
@@ -358,8 +358,8 @@ export const novels: Book[] = [
     type: 'Livro',
     tags: ['Novela', 'Drama'],
     description: 'Acompanhe o Natal difícil da família Spring e como eles lidam com recuperação e saúde mental.',
-    cover: 'https://picsum.photos/seed/tw/400/600',
-    buyLink: 'https://amazon.com'
+    cover: '/covers/this-winter.png',
+    buyLink: 'https://a.co/d/06q8rQq4'
   },
   {
     id: 103,
@@ -369,8 +369,8 @@ export const novels: Book[] = [
     type: 'Livro',
     tags: ['Ficção', 'Mistério'],
     description: 'A história de Tori Spring, irmã de Charlie, lidando com o pessimismo e um blog misterioso.',
-    cover: 'https://picsum.photos/seed/solitaire/400/600',
-    buyLink: 'https://amazon.com'
+    cover: '/covers/solitaire.png',
+    buyLink: 'https://a.co/d/01GuH4Bi'
   },
   {
     id: 104,
@@ -380,8 +380,8 @@ export const novels: Book[] = [
     type: 'Livro',
     tags: ['Contemporâneo'],
     description: 'Frances Janvier é uma máquina de estudos, mas esconde um segredo fascinante.',
-    cover: 'https://picsum.photos/seed/radio/400/600',
-    buyLink: 'https://amazon.com'
+    cover: '/covers/radio-silence.png',
+    buyLink: 'https://a.co/d/09Afkoop'
   },
   {
     id: 105,
@@ -391,8 +391,8 @@ export const novels: Book[] = [
     type: 'Livro',
     tags: ['Ficção', 'Fandom'],
     description: 'Para Angel Rahimi a vida é sobre apenas uma coisa: The Ark, uma boyband pop-rock.',
-    cover: 'https://picsum.photos/seed/iwbft/400/600',
-    buyLink: 'https://amazon.com'
+    cover: '/covers/i-was-born.png',
+    buyLink: 'https://a.co/d/08DOCagn'
   },
   {
     id: 106,
@@ -402,8 +402,8 @@ export const novels: Book[] = [
     type: 'Livro',
     tags: ['Asexualidade', 'Drama'],
     description: 'Georgia nunca se apaixonou, nunca beijou ninguém e nunca teve um crush. Mas ela tem certeza que um dia vai acontecer.',
-    cover: 'https://picsum.photos/seed/loveless/400/600',
-    buyLink: 'https://amazon.com'
+    cover: '/covers/loveless.png',
+    buyLink: 'https://a.co/d/0hrlJnj3'
   }
 ];
 
